@@ -17,7 +17,6 @@ class CreateCategorizablesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('category_id');
             $table->morphs('categorizable');
-            $table->timestamps();
         });
     }
 
