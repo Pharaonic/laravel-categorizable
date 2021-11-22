@@ -3,6 +3,7 @@
 namespace Pharaonic\Laravel\Categorizable\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Pharaonic\Laravel\Categorizable\Models\Categorizable as ModelsCategorizable;
 use Pharaonic\Laravel\Categorizable\Traits\Categorizable;
 use Pharaonic\Laravel\Translatable\Translatable;
 
@@ -40,10 +41,22 @@ class Category extends Model
      */
     public static function booted()
     {
-        foreach(config('Pharaonic.categorizable.children') as $name => $modelNamespace) {
+        foreach (config('Pharaonic.categorizable.children') as $name => $modelNamespace) {
             static::resolveRelationUsing($name, function ($model) use ($modelNamespace) {
                 return $model->morphedByMany($modelNamespace, 'categorizable');
             });
         }
+    }
+
+    public function children()
+    {
+        return $this->hasManyThrough(
+            Category::class,
+            ModelsCategorizable::class,
+            'category_id',
+            'id',
+            'id',
+            'categorizable_id'
+        );
     }
 }
