@@ -56,7 +56,7 @@ class Category extends Model
             'category_id',
             'id',
             'id',
-            'categorizable_id'
-        );
+            'categorizable_id',
+        )->where('categorizables.categorizable_type', '=', static::class)->select('categories.*');
     }
 }
