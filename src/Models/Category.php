@@ -41,7 +41,7 @@ class Category extends Model
      */
     public static function booted()
     {
-        foreach (config('Pharaonic.categorizable.children') as $name => $modelNamespace) {
+        foreach (config('Pharaonic.categorizable.children', []) as $name => $modelNamespace) {
             static::resolveRelationUsing($name, function ($model) use ($modelNamespace) {
                 return $model->morphedByMany($modelNamespace, 'categorizable');
             });
