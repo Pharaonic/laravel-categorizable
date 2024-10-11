@@ -1,0 +1,42 @@
+{
+    "name": "pharaonic/php-slugify",
+    "description": "Simplest Slugify for PHP",
+    "keywords": [
+        "php",
+        "slug",
+        "slugify",
+        "sluggable"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Moamen Eltouny",
+            "email": "raggi@pharaonic.io"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Pharaonic\\Slugify\\": "src"
+        },
+        "files": [
+            "src/Helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pharaonic\\Slugify\\Tests\\": "tests"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
