@@ -10,8 +10,8 @@ use Pharaonic\Laravel\Translatable\Translatable;
 /**
  * @property integer $id
  * @property string|null $type
- * @property Carbon $created_at
- * @property Carbon $updated_at
+ * @property \Carbon\Carbon $created_at
+ * @property \Carbon\Carbon $updated_at
  * @property CategoryTranslation $translations
  * 
  * @author Moamen Eltouny (Raggi) <raggi@raggitech.com>
